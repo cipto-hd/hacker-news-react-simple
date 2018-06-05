@@ -1,21 +1,13 @@
 import React, { Component } from 'react';
 import './App.css';
-import FilterBox from './FilterBox';
-import SearchBox from './SearchBox';
-import List from './List';
-import Button from './Button';
+import {DEFAULT_QUERY, PATH_BASE, 
+  PATH_SEARCH, PARAM_SEARCH, PARAM_PAGE, 
+  DEFAULT_HPP, PARAM_HPP} from '../../Constants';
+import SearchBox from '../SearchBox';
+import FilterBox from '../FilterBox';
+import List from '../List';
+import Button from '../Button';
 import axios from 'axios';
-
-/**
- * constant vars
- */
-const DEFAULT_QUERY = '';
-const PATH_BASE = 'https://hn.algolia.com/api/v1';
-const PATH_SEARCH = '/search';
-const PARAM_SEARCH = 'query=';
-const PARAM_PAGE = 'page=';
-const DEFAULT_HPP = '10';
-const PARAM_HPP = 'hitsPerPage=';
 
 class App extends Component {
   _isMounted = false; // var which is used to help prevent setState on unmounted
@@ -26,7 +18,7 @@ class App extends Component {
     searchQuery: DEFAULT_QUERY,
     filterQuery: '',
     error: null,
-    isLoading: false
+    isLoading: false,
   };
 
   /** lifecycle methods */
@@ -124,11 +116,16 @@ class App extends Component {
     );
   }
 
+  onSort(sortKey) {
+    this.setState({ sortKey });
+  }
+
   render() {
     const { filterQuery, searchQuery, searchKey, results, error, isLoading } = this.state;
 
     let filterBoxProps, searchBoxProps, listProps,
       onQueryChange = this.onQueryChange, onQuerySubmit = this.onQuerySubmit;
+
     filterBoxProps = { onQueryChange, queryKey: filterQuery };
     searchBoxProps = { onQueryChange, queryKey: searchQuery, onQuerySubmit, localFilter: false };
 
