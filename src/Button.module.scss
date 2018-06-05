@@ -1,0 +1,11 @@
+$primary-color: #ac0529;
+$font-color: #ffffff;
+.greatButton {
+    background-color: $primary-color;
+    color: $font-color;
+    padding: .2em;
+}
+.greatButton:hover {
+    background-color: lighten( $primary-color, 10% );
+    color: #e6dc5e
+}
