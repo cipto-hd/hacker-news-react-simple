@@ -147,11 +147,11 @@ class App extends Component {
 
     // high-order component
     const withLoading = (Component) =>
-                                  (props) =>
-                                    <Button {...props}>
-                                      {isLoading ? 'Loading...' : 'More...'}
-                                    </Button>
-                                    
+      (props) =>
+        <Button {...props}>
+          {isLoading ? 'Loading...' : 'More...'}
+        </Button>
+
     const ButtonWithLoading = withLoading(Button);
 
     return (
@@ -167,7 +167,7 @@ class App extends Component {
           error ?
             this.returnErrorMessage(error)
             :
-            results && (
+            results ? (
               <section>
                 <List {...listProps} />
 
@@ -177,7 +177,10 @@ class App extends Component {
                     {isLoading ? 'Loading...' : 'More...'}
                   </Button> */}
                 </div>
-              </section>)
+              </section>) :
+              <div className="interactions">
+                <p style={{ fontSize: '2em', fontWeight: 'bolder' }}>Loading</p>
+              </div>
 
         }
       </div>
