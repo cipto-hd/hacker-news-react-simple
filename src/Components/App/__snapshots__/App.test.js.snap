@@ -1,0 +1,438 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App has a valid snapshot 1`] = `
+<div
+  className="page"
+>
+  <div
+    className="interactions"
+  >
+    <form
+      onSubmit={[Function]}
+    >
+      <div
+        className="table"
+      >
+        <div
+          className="table-row"
+        >
+          <span
+            style={
+              Object {
+                "textAlign": "right",
+                "width": "40%",
+              }
+            }
+          >
+            <label
+              htmlFor="search"
+            >
+               Search on HN 
+               : 
+            </label>
+          </span>
+          <span
+            style={
+              Object {
+                "textAlign": "left",
+                "width": "30%",
+              }
+            }
+          >
+            <input
+              name="search"
+              onChange={[Function]}
+              style={
+                Object {
+                  "boxSizing": "border-box",
+                  "width": "100%",
+                }
+              }
+              type="text"
+              value=""
+            />
+          </span>
+          <span
+            style={
+              Object {
+                "marginLeft": ".3em",
+                "textAlign": "left",
+                "width": "30%",
+              }
+            }
+          >
+            <button
+              style={
+                Object {
+                  "backgroundColor": "#1616cc",
+                  "color": "azure",
+                  "fontWight": "bolder",
+                }
+              }
+              type="submit"
+            >
+              Submit
+            </button>
+          </span>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div
+    className="interactions"
+  >
+    <form>
+      <div
+        className="table"
+      >
+        <div
+          className="table-row"
+        >
+          <span
+            style={
+              Object {
+                "textAlign": "right",
+                "width": "40%",
+              }
+            }
+          >
+            <label
+              htmlFor="filter"
+            >
+               Filter on title 
+               : 
+            </label>
+          </span>
+          <span
+            style={
+              Object {
+                "textAlign": "left",
+                "width": "30%",
+              }
+            }
+          >
+            <input
+              name="filter"
+              onChange={[Function]}
+              style={
+                Object {
+                  "boxSizing": "border-box",
+                  "width": "100%",
+                }
+              }
+              type="text"
+              value=""
+            />
+          </span>
+          <span
+            style={
+              Object {
+                "marginLeft": ".3em",
+                "textAlign": "left",
+                "width": "30%",
+              }
+            }
+          />
+        </div>
+      </div>
+    </form>
+  </div>
+  <div
+    className="interactions"
+  >
+    <p
+      style={
+        Object {
+          "fontSize": "2em",
+          "fontWeight": "bolder",
+        }
+      }
+    >
+      Loading
+    </p>
+  </div>
+</div>
+`;
+
+exports[`Button has a valid snapshot 1`] = `
+<button
+  className="greatButton "
+  onClick={undefined}
+  type="button"
+>
+  GIVE ME MORE
+</button>
+`;
+
+exports[`List has a valid snapshot 1`] = `
+<div
+  className="table"
+>
+  <div
+    className="table-header"
+  >
+    <span
+      style={
+        Object {
+          "width": "40%",
+        }
+      }
+    >
+      <button
+        className="greatButton button-inline button-active"
+        onClick={[Function]}
+        type="button"
+      >
+        TITLE
+      </button>
+    </span>
+    <span
+      style={
+        Object {
+          "width": "30%",
+        }
+      }
+    >
+      <button
+        className="greatButton button-inline"
+        onClick={[Function]}
+        type="button"
+      >
+        AUTHOR
+      </button>
+    </span>
+    <span
+      style={
+        Object {
+          "width": "10%",
+        }
+      }
+    >
+      <button
+        className="greatButton button-inline"
+        onClick={[Function]}
+        type="button"
+      >
+        COMMENTS
+      </button>
+    </span>
+    <span
+      style={
+        Object {
+          "width": "10%",
+        }
+      }
+    >
+      <button
+        className="greatButton button-inline"
+        onClick={[Function]}
+        type="button"
+      >
+        POINTS
+      </button>
+    </span>
+    <span
+      style={
+        Object {
+          "width": "10%",
+        }
+      }
+    >
+      Archive
+    </span>
+  </div>
+  <div
+    className="table-row"
+  >
+    <span
+      style={
+        Object {
+          "width": "40%",
+        }
+      }
+    >
+      <a
+        href={undefined}
+        target="_blank"
+      >
+        1
+      </a>
+    </span>
+    <span
+      style={
+        Object {
+          "width": "30%",
+        }
+      }
+    >
+      1
+    </span>
+    <span
+      style={
+        Object {
+          "width": "10%",
+        }
+      }
+    >
+      1
+    </span>
+    <span
+      style={
+        Object {
+          "width": "10%",
+        }
+      }
+    >
+      2
+    </span>
+    <span
+      style={
+        Object {
+          "width": "10%",
+        }
+      }
+    >
+      <button
+        className="greatButton button-inline"
+        onClick={[Function]}
+        type="button"
+      >
+        DISMISS
+      </button>
+    </span>
+  </div>
+  <div
+    className="table-row"
+  >
+    <span
+      style={
+        Object {
+          "width": "40%",
+        }
+      }
+    >
+      <a
+        href={undefined}
+        target="_blank"
+      >
+        2
+      </a>
+    </span>
+    <span
+      style={
+        Object {
+          "width": "30%",
+        }
+      }
+    >
+      2
+    </span>
+    <span
+      style={
+        Object {
+          "width": "10%",
+        }
+      }
+    >
+      1
+    </span>
+    <span
+      style={
+        Object {
+          "width": "10%",
+        }
+      }
+    >
+      2
+    </span>
+    <span
+      style={
+        Object {
+          "width": "10%",
+        }
+      }
+    >
+      <button
+        className="greatButton button-inline"
+        onClick={[Function]}
+        type="button"
+      >
+        DISMISS
+      </button>
+    </span>
+  </div>
+</div>
+`;
+
+exports[`SearchBox has a valid snapshot 1`] = `
+<form
+  onSubmit={undefined}
+>
+  <div
+    className="table"
+  >
+    <div
+      className="table-row"
+    >
+      <span
+        style={
+          Object {
+            "textAlign": "right",
+            "width": "40%",
+          }
+        }
+      >
+        <label
+          htmlFor="search"
+        >
+          Search
+           : 
+        </label>
+      </span>
+      <span
+        style={
+          Object {
+            "textAlign": "left",
+            "width": "30%",
+          }
+        }
+      >
+        <input
+          name="search"
+          onChange={undefined}
+          style={
+            Object {
+              "boxSizing": "border-box",
+              "width": "100%",
+            }
+          }
+          type="text"
+          value={undefined}
+        />
+      </span>
+      <span
+        style={
+          Object {
+            "marginLeft": ".3em",
+            "textAlign": "left",
+            "width": "30%",
+          }
+        }
+      >
+        <button
+          style={
+            Object {
+              "backgroundColor": "#1616cc",
+              "color": "azure",
+              "fontWight": "bolder",
+            }
+          }
+          type="submit"
+        >
+          Submit
+        </button>
+      </span>
+    </div>
+  </div>
+</form>
+`;
