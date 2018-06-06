@@ -1,13 +1,46 @@
 import React from 'react';
 import Button from '../Button';
+import { SORTS } from '../../Constants';
+import classNames from 'classnames';
 
-export default ({ list, onDismiss, filterQuery }) => {
-    const isTitleIncudeFilterQuery = (item) => filterQuery ? 
-        (item.title ? 
+const Sort = ({
+    sortKey,
+    activeSortKey,
+    onSort,
+    children
+}) => {
+    const sortClass = classNames(
+        'button-inline',
+        { 'button-active': sortKey === activeSortKey }
+    );
+
+    return (
+        <Button
+            onClick={() => onSort(sortKey)}
+            className={sortClass}
+        >
+            {children}
+        </Button>
+    );
+}
+
+export default ({ list, onDismiss, filterQuery,
+    sortKey, isSortReverse, onSort, }) => {
+    /** Sorting on columns */
+    const sortedList = SORTS[sortKey](list);
+    const finalList = isSortReverse
+        ? sortedList.reverse()
+        : sortedList;
+
+    /** Filtering on title */
+    const isTitleIncudeFilterQuery = (item) => filterQuery ?
+        (item.title ?
             item.title.toLowerCase().includes(filterQuery.trim().toLowerCase()) : null
-        ) 
+        )
         : item;
 
+    /** Style as an object for the value of a Jsx tag atrribute or 
+     *  the value of an object key on second argument of React.CreateElement */
     const largeColumn = {
         width: '40%',
     };
@@ -17,10 +50,52 @@ export default ({ list, onDismiss, filterQuery }) => {
     const smallColumn = {
         width: '10%',
     };
+
     return (
         <div className="table">
+            <div className="table-header">
+                <span style={{ width: '40%' }}>
+                    <Sort
+                        sortKey={'TITLE'}
+                        onSort={onSort}
+                        activeSortKey={sortKey}
+                    >
+                        Title
+          </Sort>
+                </span>
+                <span style={{ width: '30%' }}>
+                    <Sort
+                        sortKey={'AUTHOR'}
+                        onSort={onSort}
+                        activeSortKey={sortKey}
+                    >
+                        Author
+          </Sort>
+                </span>
+                <span style={{ width: '10%' }}>
+                    <Sort
+                        sortKey={'COMMENTS'}
+                        onSort={onSort}
+                        activeSortKey={sortKey}
+                    >
+                        Comments
+          </Sort>
+                </span>
+                <span style={{ width: '10%' }}>
+                    <Sort
+                        sortKey={'POINTS'}
+                        onSort={onSort}
+                        activeSortKey={sortKey}
+                    >
+                        Points
+          </Sort>
+                </span>
+                <span style={{ width: '10%' }}>
+                    Archive
+        </span>
+            </div>
             {
-                list.filter(isTitleIncudeFilterQuery).map(item =>
+                finalList.filter(isTitleIncudeFilterQuery).map(item =>
                     <div key={item.objectID} className="table-row">
                         <span style={largeColumn}>
                             <a href={item.url} target="_blank">{item.title}</a>

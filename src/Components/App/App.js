@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import './App.css';
-import {DEFAULT_QUERY, PATH_BASE, 
-  PATH_SEARCH, PARAM_SEARCH, PARAM_PAGE, 
-  DEFAULT_HPP, PARAM_HPP} from '../../Constants';
+import {
+  DEFAULT_QUERY, PATH_BASE,
+  PATH_SEARCH, PARAM_SEARCH, PARAM_PAGE,
+  DEFAULT_HPP, PARAM_HPP
+} from '../../Constants';
 import SearchBox from '../SearchBox';
 import FilterBox from '../FilterBox';
 import List from '../List';
@@ -19,6 +21,8 @@ class App extends Component {
     filterQuery: '',
     error: null,
     isLoading: false,
+    sortKey: 'NONE',
+    isSortReverse: false
   };
 
   /** lifecycle methods */
@@ -116,15 +120,18 @@ class App extends Component {
     );
   }
 
-  onSort(sortKey) {
-    this.setState({ sortKey });
+  onSort = (sortKey) => {
+    const isSortReverse = this.state.sortKey === sortKey && !this.state.isSortReverse;
+    this.setState({ sortKey, isSortReverse });
   }
 
   render() {
-    const { filterQuery, searchQuery, searchKey, results, error, isLoading } = this.state;
+    const { filterQuery, searchQuery, searchKey, results,
+      error, isLoading, sortKey, isSortReverse } = this.state;
 
     let filterBoxProps, searchBoxProps, listProps,
-      onQueryChange = this.onQueryChange, onQuerySubmit = this.onQuerySubmit;
+      onQueryChange = this.onQueryChange, onQuerySubmit = this.onQuerySubmit,
+      onDismiss = this.onDismiss, onSort = this.onSort;
 
     filterBoxProps = { onQueryChange, queryKey: filterQuery };
     searchBoxProps = { onQueryChange, queryKey: searchQuery, onQuerySubmit, localFilter: false };
@@ -134,7 +141,7 @@ class App extends Component {
       results[searchKey] &&
       results[searchKey].hits
     ) || [];
-    results && (listProps = { list, onDismiss: this.onDismiss, filterQuery });
+    results && (listProps = { list, onDismiss, filterQuery, sortKey, onSort, isSortReverse });
 
     const page = (
       results &&
