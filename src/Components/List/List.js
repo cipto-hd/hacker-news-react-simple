@@ -2,6 +2,7 @@ import React from 'react';
 import Button from '../Button';
 import { SORTS } from '../../Constants';
 import classNames from 'classnames';
+import PropTypes from 'prop-types';
 
 const Sort = ({
     sortKey,
@@ -24,7 +25,7 @@ const Sort = ({
     );
 }
 
-export default ({ list, onDismiss, filterQuery,
+const List = ({ list, onDismiss, filterQuery,
     sortKey, isSortReverse, onSort, }) => {
     /** Sorting on columns */
     const sortedList = SORTS[sortKey](list);
@@ -122,4 +123,19 @@ export default ({ list, onDismiss, filterQuery,
             }
         </div>
     )
-}
+};
+
+List.propTypes = {
+    list: PropTypes.arrayOf(
+        PropTypes.shape({
+            objectID: PropTypes.string.isRequired,
+            author: PropTypes.string,
+            url: PropTypes.string,
+            num_comments: PropTypes.number,
+            points: PropTypes.number,
+        })
+    ).isRequired,
+    onDismiss: PropTypes.func.isRequired,
+};
+
+export default List;

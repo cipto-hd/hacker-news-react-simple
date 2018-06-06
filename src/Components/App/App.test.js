@@ -40,15 +40,19 @@ describe('SearchBox', () => {
 });
 
 describe('Button', () => {
+  const props = {
+    onClick: () => {}
+  };
+
   it('renders without crashing', () => {
     const div = document.createElement('div');
-    ReactDOM.render(<Button>Give Me More</Button>, div);
+    ReactDOM.render(<Button {...props}>Give Me More</Button>, div);
     ReactDOM.unmountComponentAtNode(div);
   });
 
   test('has a valid snapshot', () => {
     const component = renderer.create(
-      <Button>Give Me More</Button>
+      <Button {...props}>Give Me More</Button>
     );
     let tree = component.toJSON();
     expect(tree).toMatchSnapshot();
@@ -62,7 +66,8 @@ describe('List', () => {
       { title: '2', author: '2', num_comments: 1, points: 2, objectID: 'z' },
     ],
     sortKey: 'TITLE',
-    isSortReverse: false
+    isSortReverse: false,
+    onDismiss: () => {}
   };
 
   it('renders without crashing', () => {
